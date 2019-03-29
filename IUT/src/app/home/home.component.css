@@ -1,0 +1,64 @@
+.home-image-holder {
+  width: 100%;
+  height: 40vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/images/main.jpg") no-repeat fixed center;
+  display: table;
+}
+
+.welcome-text {
+  color: #ffffff;
+  font-size: 64px;
+  text-shadow: 5px 4px 0px rgba(0, 0, 0, 0.4);
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding-bottom: 50px;
+  position: relative;
+  animation-name: drop;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+.home-card-holder-one {
+  width: 100%;
+  height: 400px; 
+  background: url("../../assets/design/card-1.png") no-repeat scroll bottom ;
+  background-attachment: scroll;
+  background-size: 100% 363px;
+}
+
+.home-card-holder-two {
+  width: 92.3%;
+  height: 400px; 
+  background: url("../../assets/design/card-2.png") no-repeat scroll ;
+  background-attachment: scroll;
+  background-size: 100% 400px;
+}
+
+.home-card-padding {
+  padding: 80px 95px 20px 50px;
+}
+
+.home-card-padding-middle {
+  padding: 80px 68px 20px 50px;
+}
+
+.home-card-title {
+  font-size: 40px;
+}
+
+
+@keyframes drop {
+  0% {
+    padding-bottom: 100px;
+    opacity: 0;
+  }
+
+
+  100%{
+    padding-bottom: 50px;
+    opacity: 1;
+  }
+
+}

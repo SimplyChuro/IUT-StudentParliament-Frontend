@@ -1,0 +1,95 @@
+ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+a, a:active, a:focus, button, button:hover, button:active, button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+@-ms-viewport{
+  width: device-width;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+body {
+  font-family: Lato;
+  padding: 0px;
+  margin: 0px;
+  background: url("assets/design/header.png") no-repeat scroll top right;
+  background-attachment: scroll;
+  background-size: 100% 600px;
+}
+
+.material-icons, .icon-text {
+  vertical-align: middle !important;
+  padding-bottom: 3px;
+}
+
+.hr-light {
+  background-color: #ffffff;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.cross {
+  cursor: not-allowed;
+}
+
+/*Fade*/
+.fade-short {
+  position: relative;
+  animation-name: fade;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+.fade-medium {
+  position: relative;
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+.fade-long {
+  position: relative;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+@keyframes fade {
+  
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+
+}

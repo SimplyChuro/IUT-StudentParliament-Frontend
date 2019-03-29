@@ -1,0 +1,31 @@
+.error-message-holder {
+  display: table;
+  height: 100px;
+  width: 100%;
+  padding: 150px 0px 175px 0px;
+  text-align: center;
+}
+
+
+.error-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.error-message-main {
+  font-size: 224px;
+}
+
+.error-message-addition {
+  font-size: 48px;
+}
+
+.error-back-button {
+  cursor: pointer;
+  color: #252525;
+  font-weight: normal;
+  border: 2px solid #252525;
+  border-radius: 5px;
+  padding: 5px 25px;
+  margin: 0px;
+}
