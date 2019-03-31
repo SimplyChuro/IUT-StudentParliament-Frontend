@@ -1,0 +1,22 @@
+.remove-button-gallery {
+  border-bottom: 2px solid #D8D8D8; 
+  border-right: 2px solid #D8D8D8; 
+  border-left: 2px solid #D8D8D8;
+  padding: 10px 0px;
+}
+
+.page-link-black {
+  color: #252525;
+}
+
+.btn-outline-gray {
+  font-size: 18px;
+  font-style: bold;
+  border: 2px solid #D8D8D8;
+  color: #252525;
+}
+
+.btn-outline-gray:hover {
+  background: #D8D8D8;
+  color: #ffffff;
+}

@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { PictureService } from '../services/picture.service';
+import { PostService } from '../../services/post.service';
 
 @Component({
-  selector: 'app-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class PostsComponent implements OnInit {
 
-  public pictures;
-  public picture;
+  public posts;
+  public post;
   public page;
   public pageChecker: number;
   public amountOfPages;
   public max: number;
   public min: number;
 
-  constructor(private pictureService: PictureService,  private route: ActivatedRoute, private router: Router) { 
+  constructor(private postService: PostService,  private route: ActivatedRoute, private router: Router) { 
 
   }
 
   ngOnInit() {  
     var _this = this;
-    this.pictureService.getPageSize().subscribe((response) => {
+    this.postService.getPageSize().subscribe((response) => {
       this.amountOfPages = response;
     });
     this.page = this.route.snapshot.paramMap.get('page');
@@ -38,18 +38,17 @@ export class GalleryComponent implements OnInit {
   public getData(page) {
     var _this = this;
     if(page >= 1) {
-      this.min = ((this.page * 15) - 15);
-      this.max = (this.page * 15);
+      this.min = ((this.page * 10) - 10);
+      this.max = (this.page * 10);
 
-      this.pictureService.getAll(this.min, this.max).subscribe((response) => {
-        _this.pictures = response;
+      this.postService.getAll(this.min, this.max).subscribe((response) => {
+        _this.posts = response;
       });
 
     } else {
-      this.router.navigate(["/gallery/1"]);
+      this.router.navigate(["/admin/posts/1"]);
     }
   }
-
 
   public previousPage() {
     if(parseInt(this.page) > this.pageChecker) {
@@ -64,8 +63,8 @@ export class GalleryComponent implements OnInit {
       }
     }
 
-    this.router.navigate(["/gallery/" + this.page]);
-    this.getData(this.page);   
+    this.router.navigate(["/admin/posts/" + this.page]);
+    this.getData(this.page);
   }  
 
   public nextPage() {
@@ -81,19 +80,19 @@ export class GalleryComponent implements OnInit {
       }
     }
 
-    this.router.navigate(["/gallery/" + this.page]);
+    this.router.navigate(["/admin/posts/" + this.page]);
     this.getData(this.page);
   }
 
   public firstPage() {
     this.page = 1;
-    this.router.navigate(["/gallery/" + this.page]);
+    this.router.navigate(["/admin/posts/" + this.page]);
     this.getData(this.page);
   }
 
   public lastPage() {
     this.page = this.amountOfPages;
-    this.router.navigate(["/gallery/" + this.page]);
+    this.router.navigate(["/admin/posts/" + this.page]);
     this.getData(this.page);
   }
 
@@ -118,7 +117,7 @@ export class GalleryComponent implements OnInit {
   }
 
   public getCurrentPageLink() {
-    return "/gallery/" + this.page;
+    return "/admin/posts/" + this.page;
   }
 
   public firstPageDistant() {
@@ -137,16 +136,12 @@ export class GalleryComponent implements OnInit {
     }
   }
 
-  public isFirst(numb : number) {
-    if(numb == 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public getPictureUrl(name : string) {
-    return "../../assets/images/" + name;
+  public deletePost(id) {
+    var _this = this;
+    this.postService.delete(id).subscribe((response) => {
+      _this.router.navigate(["/admin/posts/" + this.page]);  
+      _this.getData(this.page);
+    });
   }
 
 }

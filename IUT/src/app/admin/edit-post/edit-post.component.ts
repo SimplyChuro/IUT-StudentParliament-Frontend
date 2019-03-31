@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
 
-import { PostService } from '../services/post.service';
+import { PostService } from '../../services/post.service';
 
 @Component({
-  selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  selector: 'app-edit-post',
+  templateUrl: './edit-post.component.html',
+  styleUrls: ['./edit-post.component.css']
 })
-export class ArticleComponent implements OnInit {
+export class EditPostComponent implements OnInit {
 
   public id;
   public post;
   public pictures;
 
-  constructor(private postService: PostService,  private route: ActivatedRoute, private router: Router) { 
+  constructor(private postService: PostService, private _location: Location,  private route: ActivatedRoute, private router: Router) { 
 
   }
 
@@ -30,6 +31,10 @@ export class ArticleComponent implements OnInit {
 
   public getPictureUrl(name: string) {
     return "../../assets/images/" + name;
+  }
+
+  public cancle() {
+    this._location.back();
   }
 
 }

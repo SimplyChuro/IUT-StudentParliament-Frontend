@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="container">
     <div class="pb-5 fade-medium">
-      <h1 class="display-2">Latest News</h1>
+      <h1 class="display-3">Latest News</h1>
       <hr>
       <ul class="m-0 p-0">
         <li *ngFor="let news of newsList; let i = index" [attr.data-index]="i">
@@ -43,14 +43,14 @@
               <span class="sr-only">Previous</span>
             </a>
           </li>
-          <div *ngIf=firstPageDistant()>
+          <div *ngIf=firstPageDistant() class="row p-0 m-0">
             <li class="page-item"><a class="page-link page-link-black pointer" (click)=firstPage()>1</a></li>
             <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
           </div>
           <li class="page-item"><a class="page-link page-link-black pointer" (click)=previousPage()>{{getPreviousPage()}}</a></li>
           <li class="page-item"><a class="page-link page-link-black" routerLink={{getCurrentPageLink()}}>{{getCurrentPage()}}</a></li>
           <li class="page-item"><a class="page-link page-link-black pointer" (click)=nextPage()>{{getNextPage()}}</a></li>
-          <div *ngIf=lastPageDistant()>
+          <div *ngIf=lastPageDistant() class="row p-0 m-0">
             <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
             <li class="page-item"><a class="page-link page-link-black pointer" (click)=lastPage()>{{amountOfPages}}</a></li>
           </div>

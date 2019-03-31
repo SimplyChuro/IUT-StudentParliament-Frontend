@@ -1,12 +1,25 @@
 <div class="container-fluid">
-  <div class="container">
-    <div class="pb-5 fade-medium">
-      <h1 class="display-3">Latest Pictures</h1>
-      <hr>
+  <div class="container fade-short">
+    <div class="mt-5">
+      <div class="row m-0 p-0">
+        <a class="btn btn-outline-gray pointer lead" routerLink="/admin/posts/1" routerLinkActive="active">Post</a>
+        <a class="btn btn-outline-gray pointer lead ml-2" routerLink="/admin/gallery/1" routerLinkActive="active">Gallery</a>
+        <a class="btn btn-outline-gray pointer lead ml-auto" routerLink="/admin/new-gallery" routerLinkActive="active">
+          New Gallery
+          <i class="material-icons">
+          add
+          </i>
+        </a>
+      </div>
+    </div>
+    <div class="pt-5 pb-5">
       <div class="row">
         <div *ngFor="let picture of pictures; let i = index" [attr.data-index]="i" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-3">
           <div>
-            <img src={{getPictureUrl(picture.name)}} alt="image" class="img-fluid rounded">
+            <img src={{getPictureUrl(picture.name)}} alt="image" class="img-fluid">
+            <p class="text-center lead remove-button-gallery w-100 pointer" (click)="remove(picture.id)">
+              Remove
+            </p>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -10,12 +12,18 @@ export class HeaderComponent implements OnInit {
 
   public loggedIn;
 
-  constructor(private session : SessionService) {
+  constructor(private session : SessionService,  private route: ActivatedRoute, private router: Router) {
 
   }
 
   ngOnInit() {
     this.loggedIn = this.session.isLoggedIn();
+  }
+
+  public logout() {
+    this.session.deleteTokenCookie();
+    this.router.navigate(["/home"]);
+    this.ngOnInit();
   }
 
 }

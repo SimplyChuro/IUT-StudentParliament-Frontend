@@ -57,6 +57,12 @@ body {
   cursor: not-allowed;
 }
 
+.custom-card-margin {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+
 /*Fade*/
 .fade-short {
   position: relative;

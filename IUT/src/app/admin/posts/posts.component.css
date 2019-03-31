@@ -1,0 +1,33 @@
+.col-id {
+  width: 10%;
+}
+
+.col-title {
+  width: 15%;
+  overflow: hidden;
+}
+
+.col-description {
+  width: 65%;
+  overflow: hidden;
+}
+
+.col-controlls {
+  width: 10%;
+}
+
+.page-link-black {
+  color: #252525;
+}
+
+.btn-outline-gray {
+  font-size: 18px;
+  font-style: bold;
+  border: 2px solid #D8D8D8;
+  color: #252525;
+}
+
+.btn-outline-gray:hover {
+  background: #D8D8D8;
+  color: #ffffff;
+}

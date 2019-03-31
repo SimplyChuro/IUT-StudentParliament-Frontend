@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import * as $ from 'jquery';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
+import { environment } from '../../environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Csrf-Token': '61ZwHIHbEjSAB421ToXNQLcamDZtH3TtlOasdf365dasd31CA3UKn'
+  }),
+  withCredentials: true
+};
 
 @Component({
   selector: 'app-login',
@@ -13,7 +20,7 @@ import * as $ from 'jquery';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http : HttpClient) {
+  constructor(private http: HttpClient,  private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -22,31 +29,24 @@ export class LoginComponent implements OnInit {
   }
 
   public login(email: string, password: string) {
-    $.ajax({
-      url: environment.apiUrl + environment.apiV1 + "login",
-      type: 'POST',
-      contentType: 'application/json',
-      dataType: 'json',
-      data: JSON.stringify({
-        email: email,
-        password: password
-      }),
-      xhrFields: {
-        withCredentials: true
-      },
+    var _this = this;
+    this.http.post(environment.apiUrl + environment.apiV1 + "login", new Login(email, password), httpOptions).subscribe((response) => {
+      _this.router.navigateByUrl('', { skipLocationChange: true }).then(() =>
+        _this.router.navigate(["/home"]),
+      );
     });
   }
 
 }
 
-// class Login {
+class Login {
 
-//   email;
-//   password;
+  email;
+  password;
 
-//   constructor(email : string, password : string) {
-//     this.email = email;
-//     this.password = password;
-//   }
+  constructor(email : string, password : string) {
+    this.email = email;
+    this.password = password;
+  }
 
-// }
+}

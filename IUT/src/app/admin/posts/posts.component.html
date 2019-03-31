@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="container fade-short">
+    <div class="mt-5">
+      <div class="row m-0 p-0">
+        <a class="btn btn-outline-gray pointer lead" routerLink="/admin/posts/1" routerLinkActive="active">Post</a>
+        <a class="btn btn-outline-gray pointer lead ml-2" routerLink="/admin/gallery/1" routerLinkActive="active">Gallery</a>
+        <a class="btn btn-outline-gray pointer lead ml-auto" routerLink="/admin/new-post" routerLinkActive="active">
+          New Post
+          <i class="material-icons">
+          add
+          </i>
+        </a>
+      </div>
+    </div>
+    <div class="mt-5 mb-5">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-id">Id</th>
+            <th class="col-title">Title</th>
+            <th class="col-description">Description</th>
+            <th class="col-controlls">Controlls</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of posts"> 
+            <th>{{post.id}}</th>
+            <td>{{post.title}}</td>
+            <td>{{post.description}}</td>
+            <td>
+              <span class="pl-2 pr-2 pointer" [routerLink]="['/admin/edit-post', post.id]">
+                <i class="material-icons">
+                create
+                </i>
+              </span>
+              <span class="pointer" (click)="deletePost(post.id)">
+                <i class="material-icons">
+                close
+                </i>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page Navigation" class="pt-3">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link page-link-black pointer" aria-label="Previous" (click)=previousPage()>
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <div *ngIf=firstPageDistant() class="row p-0 m-0">
+            <li class="page-item"><a class="page-link page-link-black pointer" (click)=firstPage()>1</a></li>
+            <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
+          </div>
+          <li class="page-item"><a class="page-link page-link-black pointer" (click)=previousPage()>{{getPreviousPage()}}</a></li>
+          <li class="page-item"><a class="page-link page-link-black pointer">{{getCurrentPage()}}</a></li>
+          <li class="page-item"><a class="page-link page-link-black pointer" (click)=nextPage()>{{getNextPage()}}</a></li>
+          <div *ngIf=lastPageDistant() class="row p-0 m-0">
+            <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
+            <li class="page-item"><a class="page-link page-link-black pointer" (click)=lastPage()>{{amountOfPages}}</a></li>
+          </div>
+          <li class="page-item">
+            <a class="page-link page-link-black pointer" aria-label="Next" (click)=nextPage()>
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

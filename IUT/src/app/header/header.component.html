@@ -39,7 +39,26 @@
         </li>
         <li class="nav-item">
           <div *ngIf="loggedIn; else notLoggedIn">
-        
+            <li class="nav-item dropdown">
+              <a class="nav-link-custom dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">
+                  person
+                </i>
+                Admin
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item pointer" routerLink="/admin/posts/1" routerLinkActive="active">Posts</a>
+                <a class="dropdown-item pointer" routerLink="/admin/new-post" routerLinkActive="active">New Post</a>
+                <a class="dropdown-item pointer" routerLink="/admin/gallery/1" routerLinkActive="active">Gallery</a>
+                <a class="dropdown-item pointer" routerLink="/admin/new-gallery" routerLinkActive="active">New Image Post</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item pointer">
+                  <span (click)=logout()>
+                    Logout
+                  </span>
+                </a>
+              </div>
+            </li>
           </div>
           <ng-template #notLoggedIn>
             <a class="nav-link-custom" routerLink="/login" routerLinkActive="active">

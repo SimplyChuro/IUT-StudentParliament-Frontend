@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { PictureService } from '../services/picture.service';
+import { PictureService } from '../../services/picture.service';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class AdminGalleryComponent implements OnInit {
 
   public pictures;
   public picture;
@@ -46,7 +46,7 @@ export class GalleryComponent implements OnInit {
       });
 
     } else {
-      this.router.navigate(["/gallery/1"]);
+      this.router.navigate(["/admin/gallery/1"]);
     }
   }
 
@@ -64,7 +64,7 @@ export class GalleryComponent implements OnInit {
       }
     }
 
-    this.router.navigate(["/gallery/" + this.page]);
+    this.router.navigate(["/admin/gallery/" + this.page]);
     this.getData(this.page);   
   }  
 
@@ -81,19 +81,19 @@ export class GalleryComponent implements OnInit {
       }
     }
 
-    this.router.navigate(["/gallery/" + this.page]);
+    this.router.navigate(["/admin/gallery/" + this.page]);
     this.getData(this.page);
   }
 
   public firstPage() {
     this.page = 1;
-    this.router.navigate(["/gallery/" + this.page]);
+    this.router.navigate(["/admin/gallery/" + this.page]);
     this.getData(this.page);
   }
 
   public lastPage() {
     this.page = this.amountOfPages;
-    this.router.navigate(["/gallery/" + this.page]);
+    this.router.navigate(["/admin/gallery/" + this.page]);
     this.getData(this.page);
   }
 
@@ -118,7 +118,7 @@ export class GalleryComponent implements OnInit {
   }
 
   public getCurrentPageLink() {
-    return "/gallery/" + this.page;
+    return "/admin/gallery/" + this.page;
   }
 
   public firstPageDistant() {
@@ -146,7 +146,15 @@ export class GalleryComponent implements OnInit {
   }
 
   public getPictureUrl(name : string) {
-    return "../../assets/images/" + name;
+    return "../../../assets/images/" + name;
+  }
+
+  public remove(id) {
+    var _this = this;
+    this.pictureService.delete(id).subscribe((response) => {
+      _this.router.navigate(["/admin/gallery/" + this.page]);
+      _this.getData(this.page);
+    });
   }
 
 }

@@ -1,0 +1,32 @@
+<div class="container-fluid custom-card-margin">
+  <div class="container">
+    <div class="row m-0 p-0">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2"></div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 fade-short">
+        <div class="card">
+          <h1 class="card-title text-center pt-2">New Post<hr></h1>
+          <div class="card-body mr-5 ml-5">
+            <form autocomplete="off">
+              <div class="form-group">
+                <label for="titleInput" class="lead pointer">Title</label>
+                <input type="text" class="form-control lead" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Title"
+                required>
+                <label for="textArea" class="lead pointer mt-3">Description</label>
+                <textarea class="form-control lead" placeholder="Enter Description" id="titleInput" rows="3"></textarea>
+                <ngx-dropzone class="mt-4" [accept]="'image/png,image/jpeg'" [maxFileSize]="2000" [showImagePreviews]="true" [preserveFiles]="false"></ngx-dropzone>
+              </div>
+              <div class="mt-5 mb-5 float-right">
+                <button class="btn btn-outline-gray pointer lead mr-2" (click)="cancle">
+                  Cancle
+                </button>
+                <button class="btn btn-outline-gray pointer lead" (click)="create">
+                  Create
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

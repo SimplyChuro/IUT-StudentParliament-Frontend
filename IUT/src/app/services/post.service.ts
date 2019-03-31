@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    'AUTH_TOKEN': 'my-auth-token'
-  })
+    'Csrf-Token': '61ZwHIHbEjSAB421ToXNQLcamDZtH3TtlOasdf365dasd31CA3UKn'
+  }),
+  withCredentials: true
 };
 
 @Injectable({
@@ -18,7 +17,7 @@ const httpOptions = {
 })
 export class PostService {
 
-  constructor(private http : HttpClient) { 
+  constructor(private http: HttpClient) { 
 
   }
 
