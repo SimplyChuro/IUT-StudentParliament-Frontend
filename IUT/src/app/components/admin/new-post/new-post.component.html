@@ -1,0 +1,39 @@
+<div class="container-fluid custom-card-margin">
+  <div class="container">
+    <div class="row m-0 p-0">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2"></div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 fade-short">
+        <div class="card">
+          <h1 class="card-title text-center pt-2">New Post<hr></h1>
+          <div class="card-body mr-5 ml-5">
+            <form autocomplete="off" #f="ngForm" (ngSubmit)="create()">
+              <div class="form-group">
+                <label for="titleInput" class="lead pointer">Title</label>
+                <input type="text" class="form-control lead" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Title"
+                required [(ngModel)]="model.title" name="title">
+                <label for="textArea" class="lead pointer mt-3">Description</label>
+                <textarea class="form-control lead" placeholder="Enter Description" id="titleInput" rows="3" [(ngModel)]="model.description" name="description"></textarea>
+                <ngx-dropzone class="mt-4" [accept]="'image/png,image/jpeg'" [maxFileSize]="2000" [showImagePreviews]="true" [preserveFiles]="false"></ngx-dropzone>
+                <div class="row m-0 p-0 mt-4 dropzone-default">
+                  <div *ngFor="let picture of pictures">
+                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 m-0 p-0">
+                      <div class="p-2">
+                        <img class="dropzone-image" id="{{picture.id}}" src="{{picture.url}}" />
+                        <p class="dropdown-remove-button click-pointer text-center mb-0" (click)="remove(picture.id)">Remove</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-5 mb-5 float-right">
+                <button class="btn btn-outline-gray pointer lead" type="submit" [disabled]="!f.valid">
+                  Create
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

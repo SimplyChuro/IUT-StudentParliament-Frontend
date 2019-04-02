@@ -1,12 +1,36 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+
+import { environment } from '../../environments/environment';
+
 import * as Cookie from 'js-cookie';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Csrf-Token': '61ZwHIHbEjSAB421ToXNQLcamDZtH3TtlOasdf365dasd31CA3UKn'
+  }),
+  withCredentials: true
+};
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+
+  }
+
+  public logIn(model) {
+    return this.http.post(environment.apiUrl + environment.apiV1 + "login", model, httpOptions);
+  }
+
+  public logOut() {
+    return this.http.post(environment.apiUrl + environment.apiV1 + "logout", httpOptions);
+  }
 
   public getTokenCookie() {
     return Cookie.get("AUTH_TOKEN");
@@ -16,20 +40,20 @@ export class SessionService {
     return window.localStorage.getItem("AUTH_TOKEN");
   }  
 
-  public setTokenCookie(token : string) {
+  public setTokenCookie(token: string) {
     Cookie.set("AUTH_TOKEN", token);
   }
 
-  public setTokenLocalStorage(token : string) {
+  public setTokenLocalStorage(token: string) {
     window.localStorage.set("AUTH_TOKEN", token);
   }
 
-  public putTokenCookie(token : string) {
+  public putTokenCookie(token: string) {
     Cookie.remove("AUTH_TOKEN");
     Cookie.set("AUTH_TOKEN", token);
   }
 
-  public putTokenLocalStorage(token : string) {
+  public putTokenLocalStorage(token: string) {
     window.localStorage.removeItem("AUTH_TOKEN");
     window.localStorage.set("AUTH_TOKEN", token);
   }

@@ -4,10 +4,8 @@ export class Post {
   public description: string;
   public pictures;
 
-  constructor(title: string, description: string, pictures) {
-    this.title = title;
-    this.description = description;
-    this.pictures = pictures;
+  constructor() {
+    
   }
 
 }
