@@ -8,10 +8,12 @@
           <div *ngIf="isFirst(i); then firstArtical else artical"></div>
           <ng-template #firstArtical>
             <div class="card">
-              <img src={{picture.url}} class="card-img-top" alt="main_image">
+              <img src={{getImageUrl(news)}} class="card-img-top image-height-limit" alt="main_image">
               <div class="card-body">
                 <h5 class="card-title">{{news.title}}</h5>
-                <p class="card-text">{{news.description}}</p>
+                <div class="default-paragraph">
+                  <p class="card-text default-overflow-v2">{{news.description}}</p>
+                </div>
                 <a class="btn btn-outline-secondary pointer" [routerLink]="['/article', news.id]">Read More</a>
               </div>
             </div>
@@ -21,12 +23,14 @@
             <div class="card mb-3">
               <div class="row no-gutters">
                 <div class="col-md-4">    
-                  <img src={{picture.url}} class="card-img" alt="main_image">
+                  <img src={{getImageUrl(news)}} class="card-img image-height-limit-half" alt="main_image">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title">{{news.title}}</h5>
-                    <p class="card-text">{{news.description}}</p>
+                    <div class="default-paragraph">
+                      <p class="card-text default-overflow-v2">{{news.description}}</p>
+                    </div>
                     <a class="btn btn-outline-secondary pointer" [routerLink]="['/article', news.id]">Read More</a>
                   </div>
                 </div>

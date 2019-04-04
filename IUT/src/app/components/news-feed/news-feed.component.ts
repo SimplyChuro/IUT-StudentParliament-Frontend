@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PostService } from '../../services/post.service';
 
@@ -137,12 +137,16 @@ export class NewsFeedComponent implements OnInit {
     }
   }
 
-  public isFirst(numb : number) {
+  public isFirst(numb: number) {
     if(numb == 0) {
       return true;
     } else {
       return false;
     }
+  }
+
+  public getImageUrl(post) {
+    return post.pictures[0].url;
   }
 
 }

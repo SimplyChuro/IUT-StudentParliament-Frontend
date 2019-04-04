@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { SessionService } from '../../services/session.service';
 
@@ -23,8 +23,11 @@ export class HeaderComponent implements OnInit {
   }
 
   public logout() {
+    this.session.logOut().subscribe((response) => {
+
+    });
+    
     this.session.deleteTokenCookie();
-    this.session.logOut();
     this.router.navigate(["/home"]);
   }
 

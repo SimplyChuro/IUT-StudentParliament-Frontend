@@ -1,10 +1,10 @@
 <div class="container-fluid">
-  <div class="container fade-short">
+  <div class="container">
     <div class="mt-5">
       <div class="row m-0 p-0">
-        <a class="btn btn-outline-gray pointer lead" routerLink="/admin/posts/1" routerLinkActive="active">Post</a>
-        <a class="btn btn-outline-gray pointer lead ml-2" routerLink="/admin/gallery/1" routerLinkActive="active">Gallery</a>
-        <a class="btn btn-outline-gray pointer lead ml-auto" routerLink="/admin/new-post" routerLinkActive="active">
+        <a class="btn-c btn-outline-gray pointer lead" routerLink="/admin/posts/1" routerLinkActive="active">Post</a>
+        <a class="btn-c btn-outline-gray pointer lead ml-2" routerLink="/admin/gallery/1" routerLinkActive="active">Gallery</a>
+        <a class="btn-c btn-outline-gray pointer lead ml-auto" routerLink="/admin/new-post" routerLinkActive="active">
           New Post
           <i class="material-icons">
           add
@@ -12,7 +12,7 @@
         </a>
       </div>
     </div>
-    <div class="mt-5 mb-5">
+    <div class="mt-5 mb-5 fade-short">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -26,7 +26,11 @@
           <tr *ngFor="let post of posts"> 
             <th>{{post.id}}</th>
             <td>{{post.title}}</td>
-            <td>{{post.description}}</td>
+            <td class="col-description">
+              <div class="default-paragraph-post">
+                <p class="default-overflow-2 p-0 m-0">{{post.description}}</p>
+              </div>
+            </td>
             <td>
               <span class="pl-2 pr-2 pointer" [routerLink]="['/admin/edit-post', post.id]">
                 <i class="material-icons">

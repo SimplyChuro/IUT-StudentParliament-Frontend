@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { PostService } from '../../../services/post.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-edit-post',
@@ -14,6 +15,7 @@ export class EditPostComponent implements OnInit {
   public id;
   public model;
   public pictures;
+  public pictureFiles;
 
   constructor(private postService: PostService, private _location: Location,  private route: ActivatedRoute, private router: Router) { 
 
@@ -29,15 +31,44 @@ export class EditPostComponent implements OnInit {
     });
   }
 
-  public edit() {
-    var _this = this;
-    this.postService.update(this.model, this.model.id).subscribe((response) => {
-      _this._location.back();
-    });
+  public back() {
+    this._location.back();
   }
 
-  public remove(id) {
+  public edit() {
+    var _this = this;
+    this.postService.update(this.model, this.pictureFiles, this.pictures);
+  }
 
+  public onFilesAdded(files: File[]) {
+    if(this.pictureFiles == null || this.pictureFiles == []) {
+      this.pictureFiles = files;
+    } else {
+      this.pictureFiles = this.pictureFiles.concat(files);
+    }
+    this.previewImages();
+  }
+
+  public remove(index) {
+    this.pictureFiles.splice(index, 1);
+  }
+
+  public removeExisting(index) {
+    this.pictures.splice(index, 1);
+  }
+
+  public getImageId(index) {
+    return "preview-image-" + index;
+  }
+
+  public previewImages() {
+    this.pictureFiles.forEach((item, index) => {
+      var reader = new FileReader();
+      reader.readAsDataURL(item);
+      reader.onload = (_event) => {
+        $('#preview-image-' + index).attr('src', reader.result);
+      }
+    });
   }
 
 }

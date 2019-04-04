@@ -10,23 +10,32 @@
               <div class="form-group">
                 <label for="titleInput" class="lead pointer">Title</label>
                 <input type="text" class="form-control lead" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Title"
-                required [(ngModel)]="model.title" name="title">
+                required [(ngModel)]="model.title" name="title" required #title="ngModel">
+                <div *ngIf="title.invalid && (title.dirty || title.touched)">
+                  <div *ngIf="title.errors.required" class="error-message mt-2">
+                    Title is required
+                  </div>
+                </div>
                 <label for="textArea" class="lead pointer mt-3">Description</label>
-                <textarea class="form-control lead" placeholder="Enter Description" id="titleInput" rows="3" [(ngModel)]="model.description" name="description"></textarea>
-                <ngx-dropzone class="mt-4" [accept]="'image/png,image/jpeg'" [maxFileSize]="2000" [showImagePreviews]="true" [preserveFiles]="false"></ngx-dropzone>
+                <textarea class="form-control lead" placeholder="Enter Description" id="titleInput" rows="3" [(ngModel)]="model.description" name="description" required #description="ngModel"></textarea>
+                <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                  <div *ngIf="description.errors.required" class="error-message mt-2">
+                    Description is required
+                  </div>
+                </div>
+                <ngx-dropzone class="mt-4" [accept]="'image/png,image/jpeg'" (filesAdded)="onFilesAdded($event)" #dropzone></ngx-dropzone>
                 <div class="row m-0 p-0 mt-4 dropzone-default">
-                  <div *ngFor="let picture of pictures">
-                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 m-0 p-0">
-                      <div class="p-2">
-                        <img class="dropzone-image" id="{{picture.id}}" src="{{picture.url}}" />
-                        <p class="dropdown-remove-button click-pointer text-center mb-0" (click)="remove(picture.id)">Remove</p>
-                      </div>
+                  <div *ngFor="let picture of pictures; let i = index" [attr.data-index]="i" class="col-sm-12 col-md-6 col-lg-4 col-xl-4 m-0 p-0">
+                    <div class="p-2">
+                      <img class="dropzone-image" id="{{getImageId(i)}}" />
+                      <p class="dropdown-remove-button click-pointer text-center mb-0" (click)="remove(i)">Remove</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="mt-5 mb-5 float-right">
-                <button class="btn btn-outline-gray pointer lead" type="submit" [disabled]="!f.valid">
+                <span class="btn-c btn-outline-gray pointer lead mr-2" (click)="back()">Back</span>
+                <button class="btn-c btn-outline-gray pointer lead" type="submit" [disabled]="!f.valid">
                   Create
                 </button>
               </div>

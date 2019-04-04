@@ -15,13 +15,22 @@
               <div class="form-group">
                 <label for="emnailInput">Email address</label>
                 <input type="email" class="form-control" id="emnailInput" aria-describedby="emailHelp" placeholder="Enter email"
-                required minlength="4" [(ngModel)]="model.email" name="email">
+                required [(ngModel)]="model.email" name="email" #email="ngModel">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <div *ngIf="email.errors.required" class="error-message mt-2">
+                    Email is required
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="passwordInput">Password</label>
-                <input type="password" class="form-control" id="passwordInput" placeholder="Password" required minlength="4" [(ngModel)]="model.password" name="password">
+                <input type="password" class="form-control" id="passwordInput" placeholder="Password" required [(ngModel)]="model.password" name="password" #password="ngModel">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <div *ngIf="password.errors.required" class="error-message mt-2">
+                    Password is required
+                  </div>
+                </div>
               </div>
-              <input type="submit" hidden />
               <button class="btn btn-outline-secondary mt-3 pl-4 pr-4 pt-2 pb-2 float-right pointer" type="submit" [disabled]="!f.valid">Login</button>
             </form>
           </div>

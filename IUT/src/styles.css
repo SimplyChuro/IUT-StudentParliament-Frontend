@@ -45,6 +45,10 @@ body {
   padding-bottom: 3px;
 }
 
+.error-message {
+  color: #FF6666; 
+}
+
 .hr-light {
   background-color: #ffffff;
 }
@@ -85,6 +89,70 @@ body {
   border-left: 1px solid #D8D8D8;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+
+.btn-c {
+  display: inline-block;
+  background: #ffffff;
+  margin-bottom: 0;
+  font-weight: 1000;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+}
+
+.btn-c:hover {
+  text-decoration: none;
+}
+
+.btn-outline-gray {
+  font-size: 18px;
+  font-style: bold;
+  color: #252525;
+  border: 2px solid #D8D8D8;
+}
+
+.btn-outline-gray:hover {
+  background: #D8D8D8;
+  color: #ffffff;
+}
+
+.page-link-black {
+  color: #252525;
+}
+
+.image-height-limit {
+  max-height: 400px;
+}
+
+.image-height-limit-half {
+  max-height: 200px;
+}
+
+.default-paragraph {
+  max-height: 400px;
+  margin-bottom: 50px;
+}
+
+.default-overflow {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.default-overflow-v2 {
+  white-space: nowrap;
+  /*max-width: 98%;*/
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PostService } from '../../../services/post.service';
-
+import * as $ from 'jquery';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-post',
@@ -12,8 +14,9 @@ import { PostService } from '../../../services/post.service';
 export class NewPostComponent implements OnInit {
 
   public model: Object = { };
+  public pictures = [];
 
-  constructor(private postService: PostService, private _location: Location) {
+  constructor(private postService: PostService, private _location: Location,  private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -21,15 +24,40 @@ export class NewPostComponent implements OnInit {
    
   }
 
-  public create() {
-    var _this = this;
-    this.postService.create(this.model).subscribe((response) => {
-      _this._location.back();
-    });
+  public back() {
+    this._location.back();
   }
 
-  public remove(id) {
-    
+  public create() {
+    var _this = this;
+    this.postService.create(this.model, this.pictures);
+  }
+
+ public onFilesAdded(files: File[]) {
+    if(this.pictures == null || this.pictures == []) {
+      this.pictures = files;
+    } else {
+      this.pictures = this.pictures.concat(files);
+    }
+    this.previewImages();
+  }
+
+  public remove(index) {
+    this.pictures.splice(index, 1);
+  }
+
+  public getImageId(index) {
+    return "preview-image-" + index;
+  }
+
+  public previewImages() {
+    this.pictures.forEach((item, index) => {
+      var reader = new FileReader();
+      reader.readAsDataURL(item);
+      reader.onload = (_event) => {
+        $('#preview-image-' + index).attr('src', reader.result);
+      }
+    });
   }
 
 }

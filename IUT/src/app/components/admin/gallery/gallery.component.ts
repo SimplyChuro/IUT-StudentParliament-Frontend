@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PictureService } from '../../../services/picture.service';
 
@@ -31,10 +31,6 @@ export class AdminGalleryComponent implements OnInit {
     this.getData(this.page);
   }
 
-  public setPage(page) {
-
-  }
-
   public getData(page) {
     var _this = this;
     if(page >= 1) {
@@ -49,7 +45,6 @@ export class AdminGalleryComponent implements OnInit {
       this.router.navigate(["/admin/gallery/1"]);
     }
   }
-
 
   public previousPage() {
     if(parseInt(this.page) > this.pageChecker) {

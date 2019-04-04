@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PostService } from '../../services/post.service';
 
@@ -13,6 +13,7 @@ export class ArticleComponent implements OnInit {
   public id;
   public post;
   public pictures;
+  public filteredPictures;
 
   constructor(private postService: PostService,  private route: ActivatedRoute, private router: Router) { 
 
@@ -25,7 +26,28 @@ export class ArticleComponent implements OnInit {
     this.postService.get(this.id).subscribe((response) => {
       _this.post = response;
       _this.pictures = _this.post.pictures;
+      _this.filteredPictures = _this.pictures.splice(1);
     });
   }
 
+  public getFirstPicture() {
+    return this.pictures[0].url;
+  }
+
+  public isFirst(i) {
+    if(i == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public isNotFirst(i) {
+    if(i !== 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
 }
