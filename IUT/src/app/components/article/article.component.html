@@ -2,16 +2,13 @@
   <div class="container">
    <div id="carouselControlls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner rounded">
-
         <div class="carousel-item active">
           <img class="d-block w-100 image-height-limit" src="{{getFirstPicture()}}" alt="slide">
         </div>
-
         <div *ngFor="let picture of filteredPictures; let i = index" [attr.data-index]="i" class="carousel-item">
           <img class="d-block w-100 image-height-limit lead" src="{{picture.url}}" alt="slide">
         </div>
       </div>
-
       <a class="carousel-control-prev" href="#carouselControlls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
