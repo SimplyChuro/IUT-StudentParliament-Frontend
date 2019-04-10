@@ -21,7 +21,7 @@ export class NewPostComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+	
   }
 
   public back() {
