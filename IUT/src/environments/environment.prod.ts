@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: 'http://localhost:9000/',
+  apiUrl: 'https://iut-student-parliament-backend.herokuapp.com/',
   apiV1: 'api/v1/',
   post: 'post',
   picture: 'picture',
