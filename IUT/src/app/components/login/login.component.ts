@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   public email: string;
   public password: string;
-  public model: Object = {};
+  public model: LoginInterface;
 
   constructor(private session: SessionService, private route: ActivatedRoute, private router: Router) {
 
@@ -30,4 +30,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+}
+
+export interface LoginInterface {
+    id: Number;
+	email: String;
+    password: String;
 }
