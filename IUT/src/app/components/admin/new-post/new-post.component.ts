@@ -13,7 +13,12 @@ import swal from 'sweetalert2';
 })
 export class NewPostComponent implements OnInit {
 
-  public model: PostInterface;
+  public model: PostInterface = {
+	id: 0,
+	title: "",
+	description: ""
+  };
+  
   public pictures = [];
 
   constructor(private postService: PostService, private _location: Location,  private route: ActivatedRoute, private router: Router) {

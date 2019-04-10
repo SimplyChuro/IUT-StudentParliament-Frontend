@@ -12,7 +12,11 @@ export class LoginComponent implements OnInit {
 
   public email: string;
   public password: string;
-  public model: LoginInterface;
+  public model: LoginInterface = {
+	id: 0,
+	email: "",
+	password: ""
+  };
 
   constructor(private session: SessionService, private route: ActivatedRoute, private router: Router) {
 
