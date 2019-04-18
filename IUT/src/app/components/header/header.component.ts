@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { SessionService } from '../../services/session.service';
 
@@ -10,7 +11,7 @@ import { SessionService } from '../../services/session.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private session: SessionService,  private route: ActivatedRoute, private router: Router) {
+  constructor(private session: SessionService,  private route: ActivatedRoute, private router: Router, private translate: TranslateService) {
 
   }
 
@@ -29,6 +30,11 @@ export class HeaderComponent implements OnInit {
     
     this.session.deleteTokenCookie();
     this.router.navigate(["/home"]);
+  }
+
+  public switchLanguage(language: string) {
+    this.session.setLanguage(language);
+    this.translate.use(language);
   }
 
 }

@@ -1,0 +1,197 @@
+{
+  "header": {
+
+    "home": "Home",
+    "news": "﻿News Feed",
+    "gallery": "Gallery",
+    "about": "About us",
+
+    "admin": {
+
+      "posts": "Posts",
+      "gallery": "Gallery",
+
+      "new": {
+        "post": "New Post",
+        "gallery": "New Gallery"
+      }
+
+    }
+
+  },
+
+  "home": {
+
+    "cards": {
+
+      "work": {
+        "title": "Our Work",
+        "description": "We work on a lot of projects which focus on our local community. So far we have done a lot in our Town.",
+        "link": "Check More"
+      },
+
+      "about": {
+        "title": "About us",
+        "description": "We are the school parliament of Travnik, we do all sorts of projects that help us and the community.",
+        "link": "Check More"
+      },
+
+      "goals": {
+        "title": "Our goals",
+        "description": "We plan to expand our services to the entire nation in order to shape our country in a better way.",
+        "link": "Check More"
+      }
+
+    },
+
+    "intro": {
+      "description": "This website is designed for the International University of Travnik Student Parliament, and serves for their neccessary needs. On this website you can see events, news and projects the students of the International University of Travnik have done and made. To read more about the given projects check out the news feed.",
+      "link": "Check Out"
+    }
+
+  },
+
+  "news": {
+    "title": "Latest News"
+  },
+
+  "gallery": {
+    "title": "Latest Pictures"
+  },
+
+  "about": {
+    "description": "The student parliament consists of young individuals who are seeking new challenges every day. They operate from within the college and get new tasks each month to improve their skill set and show what the youth can do. So far our student parliament has improved the city and done numerous projects showing off their skill set.",
+    "link": "Website Developers"
+  },
+
+  "error": {
+    "title": "404",
+    "description": "An error has occoured",
+    "link": "Go back"
+  },
+
+  "admin": {
+    
+    "posts": {
+      
+      "links": {
+        "post": "Post",
+        "gallery": "Gallery",
+        "new": "New Post"
+      },
+
+      "table": {
+        "id": "Id",
+        "title": "Title",
+        "description": "Description",
+        "controlls": "Controlls"
+      }
+    
+    },
+
+    "gallery": {
+
+      "links": {
+        "post": "Post",
+        "gallery": "Gallery",
+        "new": "New Gallery"
+      }
+
+    },
+
+    "new": {
+
+      "post": {
+
+        "card": {
+          "header": "New Post",
+          "title": "Title",
+          "description": "Description"
+        },
+
+        "links": {
+          "back": "Back",
+          "create": "Create"
+        },
+
+        "verification": {
+          "title": "Title is required",
+          "description": "Description is required"
+        }
+
+      },
+
+      "gallery": {
+
+        "card": {
+          "header": "New Gallery"
+        },
+
+        "links": {
+          "back": "Back",
+          "create": "Create"
+        }
+
+      }
+
+    },
+
+    "edit": {
+
+      "post": {
+
+        "card": {
+          "header": "Edit Post",
+          "title": "Title",
+          "description": "Description"
+        },
+
+        "links": {
+          "back": "Back",
+          "create": "Edit"
+        },
+
+        "verification": {
+          "title": "Title is required",
+          "description": "Description is required"
+        }
+
+      }
+
+    }
+
+  },
+
+  "team": {
+    "title": "Meet The Developers"
+  },
+
+  "footer": {
+
+    "copyright": "© All rights reserved by the Student Parliament International University Travnik",
+
+    "col": {
+  
+      "location": {
+        "title": "Location",
+        "address": "Aleja Konzula – Meljenac BB",
+        "city": "72270 Travnik",
+        "country": "Bosnia and Herzegovina"
+      },
+  
+      "contact": {
+        "title": "Contact Information",
+        "telephone": "Telephone - +387 30 509 682",
+        "fax": "Fax - +387 30 540 587",
+        "mail": "E-mail - studentska@iu-travnik.com"
+      },
+
+      "social": {
+        "title": "Social Links"
+      }
+
+    }
+  
+  }
+
+}

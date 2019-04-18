@@ -4,7 +4,7 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2"></div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 fade-short">
         <div class="card">
-          <h1 class="card-title text-center pt-2">New Gallery<hr></h1>
+          <h1 class="card-title text-center pt-2">{{"admin.new.gallery.card.header" | translate:user}}<hr></h1>
           <div class="card-body mr-5 ml-5">
             <form autocomplete="off">
               <div class="form-group">
@@ -19,9 +19,11 @@
                 </div>
               </div>
               <div class="mt-5 mb-5 float-right">
-                <span class="btn-c btn-outline-gray pointer lead mr-2" (click)="back()">Back</span>
+                <span class="btn-c btn-outline-gray pointer lead mr-2" (click)="back()">
+                  {{"admin.new.gallery.links.back" | translate:user}}
+                </span>
                 <button class="btn-c btn-outline-gray pointer lead" (click)="create()">
-                  Create
+                  {{"admin.new.gallery.links.create" | translate:user}}
                 </button>
               </div>
             </form>

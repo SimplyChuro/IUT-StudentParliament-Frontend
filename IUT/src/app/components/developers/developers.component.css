@@ -1,0 +1,85 @@
+.custom-card {
+  max-width: 95%;
+  height: 480px;
+  cursor: pointer;
+}
+
+.front, .back {
+  width: 95%;
+  height: 95%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform .8s linear;
+}
+
+.front {
+  transform: perspective(600px) rotateY(0deg);
+}
+
+.back {
+  background: #f1f1f1;
+  transform: perspective(600px) rotateY(180deg);
+}
+
+.back-content {
+  color: #252525;
+  text-align: center;
+  width: 100%;
+}
+
+.sm {
+  margin: 20px 0;
+}
+
+.sm a {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  color: #252525;
+  font-size: 32px;
+  transition: 0.4s;
+  border-radius: 50%
+}
+
+.sm a:hover {
+  background: #252525;
+  color: white;
+  text-decoration: none;
+}
+
+.custom-card:hover > .front {
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+.custom-card:hover > .back {
+  transform: perspective(600px) rotateY(0deg);
+}
+
+.contact-information-title {
+  font-weight: 300;
+  font-size: 48px;
+}
+
+.info-title-main {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.info-title-secondary {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.info-text {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.33px;
+}
+
+.seperator {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}

@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="container">
     <div class="pb-5 fade-medium">
-      <h1 class="display-3">Latest Pictures</h1>
+      <h1 class="display-3">{{"gallery.title" | translate:user}}</h1>
       <hr>
       <div class="row">
         <div *ngFor="let picture of pictures; let i = index" [attr.data-index]="i" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-3">
@@ -19,15 +19,15 @@
             </a>
           </li>
           <div *ngIf=firstPageDistant() class="row p-0 m-0">
-            <li class="page-item"><a class="page-link page-link-black pointer" (click)=firstPage()>1</a></li>
+            <li class="no-radius-left"><a class="page-link page-link-black pointer" (click)=firstPage()>1</a></li>
             <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
           </div>
           <li class="page-item"><a class="page-link page-link-black pointer" (click)=previousPage()>{{getPreviousPage()}}</a></li>
-          <li class="page-item"><a class="page-link page-link-black" routerLink={{getCurrentPageLink()}}>{{getCurrentPage()}}</a></li>
+          <li class="page-item"><a class="page-link page-link-black pointer">{{getCurrentPage()}}</a></li>
           <li class="page-item"><a class="page-link page-link-black pointer" (click)=nextPage()>{{getNextPage()}}</a></li>
           <div *ngIf=lastPageDistant() class="row p-0 m-0">
-            <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
-            <li class="page-item"><a class="page-link page-link-black pointer" (click)=lastPage()>{{amountOfPages}}</a></li>
+            <li class="no-radius-left"><a class="page-link page-link-black cross">...</a></li>
+            <li class="no-radius-right"><a class="page-link page-link-black pointer" (click)=lastPage()>{{amountOfPages}}</a></li>
           </div>
           <li class="page-item">
             <a class="page-link page-link-black pointer" aria-label="Next" (click)=nextPage()>

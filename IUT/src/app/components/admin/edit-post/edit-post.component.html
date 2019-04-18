@@ -4,15 +4,25 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2"></div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 fade-short">
         <div class="card">
-          <h1 class="card-title text-center pt-2">Edit Post<hr></h1>
+          <h1 class="card-title text-center pt-2">{{"admin.edit.post.card.header" | translate:user}}<hr></h1>
           <div class="card-body mr-5 ml-5">
             <form autocomplete="off" #f="ngForm" (ngSubmit)="edit()">
               <div class="form-group">
-                <label for="titleInput" class="lead pointer">Title</label>
+                <label for="titleInput" class="lead pointer">{{"admin.edit.post.card.title" | translate:user}}</label>
                 <input type="text" class="form-control lead" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Title"
-                required [(ngModel)]="model.title" name="title">
-                <label for="textArea" class="lead pointer mt-3">Description</label>
-                <textarea class="form-control lead" placeholder="Enter Description" id="titleInput" rows="3" [(ngModel)]="model.description" name="description"></textarea>
+                required [(ngModel)]="model.title" name="title" required #title="ngModel">
+                <div *ngIf="title.invalid && (title.dirty || title.touched)">
+                  <div *ngIf="title.errors.required" class="error-message mt-2">
+                    {{"admin.edit.post.verification.title" | translate:user}}
+                  </div>
+                </div>
+                <label for="textArea" class="lead pointer mt-3">{{"admin.edit.post.card.description" | translate:user}}</label>
+                <textarea class="form-control lead" placeholder="Enter Description" id="textArea" rows="3" [(ngModel)]="model.description" name="description" required #description="ngModel"></textarea>
+                <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                  <div *ngIf="description.errors.required" class="error-message mt-2">
+                    {{"admin.edit.post.verification.description" | translate:user}}
+                  </div>
+                </div>
                 <ngx-dropzone class="mt-4" [accept]="'image/png,image/jpeg'" (filesAdded)="onFilesAdded($event)" #dropzone></ngx-dropzone>
                 <div class="row m-0 p-0 mt-4 dropzone-default">
                   
@@ -32,9 +42,9 @@
                 </div>
               </div>
               <div class="mt-5 mb-5 float-right">
-                <span class="btn-c btn-outline-gray pointer lead mr-2" (click)="back()">Back</span>
+                <span class="btn-c btn-outline-gray pointer lead mr-2" (click)="back()">{{"admin.edit.post.links.back" | translate:user}}</span>
                 <button class="btn-c btn-outline-gray pointer lead" type="submit" [disabled]="!f.valid">
-                  Update
+                  {{"admin.edit.post.links.create" | translate:user}}
                 </button>
               </div>
             </form>

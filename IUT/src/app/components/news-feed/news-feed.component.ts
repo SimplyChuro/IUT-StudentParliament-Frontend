@@ -146,7 +146,11 @@ export class NewsFeedComponent implements OnInit {
   }
 
   public getImageUrl(post) {
-    return post.pictures[0].url;
+    if(!(post.pictures === undefined || post.pictures.length == 0)) {
+      return post.pictures[0].url;
+    } else {
+      return null;
+    }
   }
 
 }

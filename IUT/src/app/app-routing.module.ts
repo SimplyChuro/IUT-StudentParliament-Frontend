@@ -6,6 +6,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { ArticleComponent } from './components/article/article.component';
 import { LoginComponent } from './components/login/login.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { DevelopersComponent } from './components/developers/developers.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'article/:id', component: ArticleComponent },
   { path: 'login', component: LoginComponent },
   { path: 'about-us', component: AboutUsComponent },
+  { path: 'developers', component: DevelopersComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

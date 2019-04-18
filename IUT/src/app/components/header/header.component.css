@@ -12,3 +12,10 @@
   
 }
 
+.logo {
+  max-height: 60px;
+}
+
+.header-language-icon {
+  max-height: 25px;
+}

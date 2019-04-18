@@ -1,0 +1,198 @@
+{
+  "header": {
+
+    "home": "Naslovna",
+    "news": "﻿Novosti",
+    "gallery": "Galerija",
+    "about": "O nama",
+
+    "admin": {
+
+      "posts": "Objave",
+      "gallery": "Galerija",
+
+      "new": {
+        "post": "Nova objava",
+        "gallery": "Nova galerija"
+      }
+
+    }
+
+  },
+
+  "home": {
+
+    "cards": {
+
+      "work": {
+        "title": "Naša djela",
+        "description": "Radimo na mnogim projektima koji se fokusiraju na našu lokalnu zajednicu. Do sada smo mnogo toga uradili za naš grad.",
+        "link": "Više..."
+      },
+
+      "about": {
+        "title": "O nama",
+        "description": "Mi smo Studentski parlament u Travniku, radimo razne projekte koji pomažu nama i zajednici.",
+        "link": "Više..."
+      },
+
+      "goals": {
+        "title": "Naši ciljevi",
+        "description": "Planiramo proširiti naše usluge na cijelu naciju kako bismo na što bolji način oblikovali našu zemlju.",
+        "link": "Više..."
+      }
+
+    },
+
+    "intro": {
+      "description": "Ova web stranica je dizajnirana za Studentski parlament Internacionalnog univerziteta Travnik u Travniku i služi za njihove potrebe. Na ovoj web stranici možete vidjeti događaje, vijesti i projekte koje su studenti Internacionalnog univerziteta Travnik u Travniku kreirali i objavili. Da biste pročitali više o našim projektima pogledajte novosti.",
+      "link": "Više..."
+    }
+
+  },
+
+  "news": {
+    "title": "Najnovije vijesti"
+  },
+
+  "gallery": {
+    "title": "Najnovije slike"
+  },
+
+  "about": {
+    "description": "Studentski parlament čine mladi ljudi koji svakodnevno traže nove izazove. Oni djeluju unutar fakulteta i dobivaju nove zadatke svakog mjeseca kako bi poboljšali svoje vještine i pokazali šta sve mladi mogu učiniti. Do sada je naš Studentski parlament poboljšao grad i uradio brojne projekte sa kojima su pokazali svoje vještine.",
+    "link": "Kreatori stranice"
+  },
+
+  "error": {
+    "title": "404",
+    "description": "Došlo je do greške",
+    "link": "Idi nazad"
+  },
+
+  "admin": {
+    
+    "posts": {
+      
+      "links": {
+        "post": "Objave",
+        "gallery": "Galerija",
+        "new": "Nova objava"
+      },
+
+      "table": {
+        "id": "Id",
+        "title": "Naslov",
+        "description": "Opis",
+        "controlls": "Kontrole"
+      }
+    
+    },
+
+    "gallery": {
+
+      "links": {
+        "post": "Objavi",
+        "gallery": "Galerija",
+        "new": "Nova galerija"
+      }
+
+    },
+
+    "new": {
+
+      "post": {
+
+        "card": {
+          "header": "Nova objava",
+          "title": "Naslov",
+          "description": "Opis"
+        },
+
+        "links": {
+          "back": "Nazad",
+          "create": "Kreiraj"
+        },
+
+        "verification": {
+          "title": "Naslov je obavezan",
+          "description": "Opis je obavezan"
+        }
+
+      },
+
+      "gallery": {
+
+        "card": {
+          "header": "Nova galerija"
+        },
+
+        "links": {
+          "back": "Nazad",
+          "create": "Kreiraj"
+        }
+
+      }
+
+    },
+
+    "edit": {
+
+      "post": {
+
+        "card": {
+          "header": "Uredi objavu",
+          "title": "Naslov",
+          "description": "Opis"
+        },
+
+        "links": {
+          "back": "Nazad",
+          "create": "Uredi"
+        },
+
+        "verification": {
+          "title": "Naslov je obavezan",
+          "description": "Opis je obavezan"
+        }
+
+      }
+
+    }
+
+  },
+
+  "team": {
+    "title": "Upoznajte kreatore stranice"
+  },
+
+
+  "footer": {
+
+    "copyright": "© Sva prava pridržana od strane Studentskog parlamenta Internacionalnog univerziteta Travnik u Travniku",
+
+    "col": {
+  
+      "location": {
+        "title": "Lokacija",
+        "address": "Aleja Konzula – Meljenac BB",
+        "city": "72270 Travnik",
+        "country": "Bosna i Hercegovina"
+      },
+  
+      "contact": {
+        "title": "Kontakt informacije",
+        "telephone": "Broj telefona - +387 30 509 682",
+        "fax": "Fax - +387 30 540 587",
+        "mail": "E-mail - studentska@iu-travnik.com"
+      },
+
+      "social": {
+        "title": "Socijalne mreže"
+      }
+
+    }
+  
+  }
+
+}

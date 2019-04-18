@@ -10,8 +10,7 @@ import swal from 'sweetalert2';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Csrf-Token': '61ZwHIHbEjSAB421ToXNQLcamDZtH3TtlOasdf365dasd31CA3UKn'
+    'Content-Type':  'application/json'
   }),
   withCredentials: true
 };
@@ -56,9 +55,6 @@ export class PictureService {
         $.ajax({
             url: environment.apiUrl + environment.apiV1 + environment.picture,
             data: data,
-            beforeSend: function(xhr) {
-              xhr.setRequestHeader("Csrf-Token", '61ZwHIHbEjSAB421ToXNQLcamDZtH3TtlOasdf365dasd31CA3UKn');  
-            },
             cache: false,
             contentType: false,
             processData: false,

@@ -8,8 +8,7 @@ import * as Cookie from 'js-cookie';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Csrf-Token': '61ZwHIHbEjSAB421ToXNQLcamDZtH3TtlOasdf365dasd31CA3UKn'
+    'Content-Type':  'application/json'
   }),
   withCredentials: true
 };
@@ -45,7 +44,7 @@ export class SessionService {
   }
 
   public setTokenLocalStorage(token: string) {
-    window.localStorage.set("AUTH_TOKEN", token);
+    window.localStorage.setItem("AUTH_TOKEN", token);
   }
 
   public putTokenCookie(token: string) {
@@ -55,7 +54,7 @@ export class SessionService {
 
   public putTokenLocalStorage(token: string) {
     window.localStorage.removeItem("AUTH_TOKEN");
-    window.localStorage.set("AUTH_TOKEN", token);
+    window.localStorage.setItem("AUTH_TOKEN", token);
   }
 
   public deleteTokenCookie() {
@@ -72,6 +71,18 @@ export class SessionService {
     } else {
       return false;
     }
+  }
+
+  public getLanguage() {
+    if(window.localStorage.getItem("lang") === null) {
+      window.localStorage.setItem("lang", "ba");
+    }
+
+    return window.localStorage.getItem("lang");
+  }
+
+  public setLanguage(language) {
+    window.localStorage.setItem("lang", language);
   }
 
 }

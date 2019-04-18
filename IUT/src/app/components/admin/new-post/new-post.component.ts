@@ -68,7 +68,7 @@ export class NewPostComponent implements OnInit {
 }
 
 export interface PostInterface {
-    id: Number;
+  id: Number;
 	title: String;
-    description: String;
+  description: String;
 }

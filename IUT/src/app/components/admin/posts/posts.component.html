@@ -2,10 +2,10 @@
   <div class="container">
     <div class="mt-5">
       <div class="row m-0 p-0">
-        <a class="btn-c btn-outline-gray pointer lead" routerLink="/admin/posts/1" routerLinkActive="active">Post</a>
-        <a class="btn-c btn-outline-gray pointer lead ml-2" routerLink="/admin/gallery/1" routerLinkActive="active">Gallery</a>
+        <a class="btn-c btn-outline-gray pointer lead" routerLink="/admin/posts/1" routerLinkActive="active">{{"admin.posts.links.post" | translate:user}}</a>
+        <a class="btn-c btn-outline-gray pointer lead ml-2" routerLink="/admin/gallery/1" routerLinkActive="active">{{"admin.posts.links.gallery" | translate:user}}</a>
         <a class="btn-c btn-outline-gray pointer lead ml-auto" routerLink="/admin/new-post" routerLinkActive="active">
-          New Post
+          {{"admin.posts.links.new"| translate:user}}
           <i class="material-icons">
           add
           </i>
@@ -16,10 +16,10 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th class="col-id">Id</th>
-            <th class="col-title">Title</th>
-            <th class="col-description">Description</th>
-            <th class="col-controlls">Controlls</th>
+            <th class="col-id">{{"admin.posts.table.id" | translate:user}}</th>
+            <th class="col-title">{{"admin.posts.table.title" | translate:user}}</th>
+            <th class="col-description">{{"admin.posts.table.description" | translate:user}}</th>
+            <th class="col-controlls">{{"admin.posts.table.controlls" | translate:user}}</th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
             <td>{{post.title}}</td>
             <td class="col-description">
               <div class="default-paragraph-post">
-                <p class="default-overflow-2 p-0 m-0 text-truncate">{{post.description}}</p>
+                <p class="default-overflow-2 p-0 m-0">{{post.description}}</p>
               </div>
             </td>
             <td>
@@ -55,15 +55,15 @@
             </a>
           </li>
           <div *ngIf=firstPageDistant() class="row p-0 m-0">
-            <li class="page-item"><a class="page-link page-link-black pointer" (click)=firstPage()>1</a></li>
+            <li class="no-radius-left"><a class="page-link page-link-black pointer" (click)=firstPage()>1</a></li>
             <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
           </div>
           <li class="page-item"><a class="page-link page-link-black pointer" (click)=previousPage()>{{getPreviousPage()}}</a></li>
           <li class="page-item"><a class="page-link page-link-black pointer">{{getCurrentPage()}}</a></li>
           <li class="page-item"><a class="page-link page-link-black pointer" (click)=nextPage()>{{getNextPage()}}</a></li>
           <div *ngIf=lastPageDistant() class="row p-0 m-0">
-            <li class="page-item"><a class="page-link page-link-black cross">...</a></li>
-            <li class="page-item"><a class="page-link page-link-black pointer" (click)=lastPage()>{{amountOfPages}}</a></li>
+            <li class="no-radius-left"><a class="page-link page-link-black cross">...</a></li>
+            <li class="no-radius-right"><a class="page-link page-link-black pointer" (click)=lastPage()>{{amountOfPages}}</a></li>
           </div>
           <li class="page-item">
             <a class="page-link page-link-black pointer" aria-label="Next" (click)=nextPage()>

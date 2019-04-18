@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+import { SessionService } from './services/session.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'IUT';
+
+  constructor(private translate: TranslateService, private session: SessionService) {
+    translate.setDefaultLang(this.session.getLanguage());
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+  }
+
 }

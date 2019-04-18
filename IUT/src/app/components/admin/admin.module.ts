@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AdminComponent } from './admin.component';
 import { PostsComponent } from './posts/posts.component';
@@ -27,6 +29,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     FormsModule,
     NgxDropzoneModule,
     AdminRoutingModule,
+    TranslateModule
   ],
   providers: []
 })

@@ -61,6 +61,10 @@ body {
   cursor: not-allowed;
 }
 
+.seperator-top {
+  margin-top: 200px;
+}
+
 .custom-card-margin {
   margin-top: 100px;
   margin-bottom: 100px;
@@ -106,9 +110,11 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   border-radius: 4px;
+  transition-duration: 0.4s;
 }
 
 .btn-c:hover {
+  transition-duration: 0.4s;
   text-decoration: none;
 }
 
@@ -155,6 +161,15 @@ body {
   text-overflow: ellipsis;
 }
 
+.no-radius-left {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;  
+}
+
+.no-radius-right {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;  
+}
 
 /*Fade*/
 .fade-short {

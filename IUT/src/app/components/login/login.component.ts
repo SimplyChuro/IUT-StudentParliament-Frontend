@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 }
 
 export interface LoginInterface {
-    id: Number;
+  id: Number;
 	email: String;
-    password: String;
+  password: String;
 }

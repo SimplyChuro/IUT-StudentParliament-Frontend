@@ -31,7 +31,11 @@ export class ArticleComponent implements OnInit {
   }
 
   public getFirstPicture() {
-    return this.pictures[0].url;
+    if(!(this.pictures === undefined || this.pictures.length == 0)) {
+      return this.pictures[0].url;
+    } else {
+      return null;
+    }
   }
 
   public isFirst(i) {

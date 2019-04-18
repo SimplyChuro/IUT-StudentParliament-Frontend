@@ -1,16 +1,23 @@
-<nav class="navbar navbar-expand-md navbar-dark navbar-red pl-3 pt-4 pb-5 pr-3">
+<nav class="navbar navbar-expand-md navbar-dark navbar-red pl-4 pr-4">
   <div class="container-fluid">
-    <button type="button" class="navbar-toggler ml-auto" data-target="#navigationList" data-toggle="collapse">
+    <a class="navbar-brand pl-1" routerLink="/home" routerLinkActive="active">
+      <img src="assets/design/header_logo.png" class="logo">
+      <div>
+        <span class="header-language-holder mr-2" (click)="switchLanguage('ba')"><img src="assets/design/bosnian_flag.png" class="header-language-icon rounded"></span>
+        <span class="header-language-holder" (click)="switchLanguage('en')"><img src="assets/design/british_flag.png" class="header-language-icon rounded"></span>
+      </div>
+    </a>
+    <button type="button" class="navbar-toggler ml-auto mb-4" data-target="#navigationList" data-toggle="collapse">
       <span class="navbar-toggler-icon text-white"></span>
     </button>
-    <div class="collapse navbar-collapse pr-3" id="navigationList">
+    <div class="collapse navbar-collapse pr-3 mb-4" id="navigationList">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link-custom pr-3" routerLink="/home" routerLinkActive="active">
             <i class="material-icons">
             home
             </i>
-            Home
+            {{"header.home" | translate:user}}
           </a>
         </li>
         <li class="nav-item">
@@ -18,7 +25,7 @@
             <i class="material-icons">
             library_books
             </i>
-            News Feed
+            {{"header.news" | translate:user}}
           </a>
         </li>
         <li class="nav-item">
@@ -26,7 +33,7 @@
             <i class="material-icons">
             photo_library
             </i>
-            Gallery
+            {{"header.gallery" | translate:user}}
           </a>
         </li>
         <li class="nav-item">
@@ -34,7 +41,7 @@
             <i class="material-icons">
             info
             </i>
-            About Us
+            {{"header.about" | translate:user}}
           </a>
         </li>
         <li class="nav-item">
@@ -47,10 +54,10 @@
                 Admin
               </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item pointer" routerLink="/admin/posts/1" routerLinkActive="active">Posts</a>
-                <a class="dropdown-item pointer" routerLink="/admin/new-post" routerLinkActive="active">New Post</a>
-                <a class="dropdown-item pointer" routerLink="/admin/gallery/1" routerLinkActive="active">Gallery</a>
-                <a class="dropdown-item pointer" routerLink="/admin/new-gallery" routerLinkActive="active">New Gallery</a>
+                <a class="dropdown-item pointer" routerLink="/admin/posts/1" routerLinkActive="active">{{"header.admin.posts" | translate:user}}</a>
+                <a class="dropdown-item pointer" routerLink="/admin/new-post" routerLinkActive="active">{{"header.admin.new.post" | translate:user}}</a>
+                <a class="dropdown-item pointer" routerLink="/admin/gallery/1" routerLinkActive="active">{{"header.admin.gallery" | translate:user}}</a>
+                <a class="dropdown-item pointer" routerLink="/admin/new-gallery" routerLinkActive="active">{{"header.admin.new.gallery" | translate:user}}</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item pointer">
                   <span (click)=logout()>
@@ -60,14 +67,14 @@
               </div>
             </li>
           </div>
-          <ng-template #notLoggedIn>
+          <!-- <ng-template #notLoggedIn>
             <a class="nav-link-custom" routerLink="/login" routerLinkActive="active">
               <i class="material-icons">
               person
               </i>
               Login
             </a>
-          </ng-template>
+          </ng-template> -->
         </li>
       </ul>
     </div>
