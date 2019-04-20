@@ -32,41 +32,43 @@ export class SessionService {
   }
 
   public getTokenCookie() {
-    return Cookie.get("AUTH_TOKEN");
+    return Cookie.get("token");
   }
 
   public getTokenLocalStorage() {
-    return window.localStorage.getItem("AUTH_TOKEN");
+    return window.localStorage.getItem("token");
   }  
 
   public setTokenCookie(token: string) {
-    Cookie.set("AUTH_TOKEN", token);
+    Cookie.set("token", token);
   }
 
   public setTokenLocalStorage(token: string) {
-    window.localStorage.setItem("AUTH_TOKEN", token);
+    window.localStorage.setItem("token", token);
   }
 
   public putTokenCookie(token: string) {
-    Cookie.remove("AUTH_TOKEN");
-    Cookie.set("AUTH_TOKEN", token);
+    Cookie.remove("token");
+    Cookie.set("token", token);
   }
 
   public putTokenLocalStorage(token: string) {
-    window.localStorage.removeItem("AUTH_TOKEN");
-    window.localStorage.setItem("AUTH_TOKEN", token);
+    window.localStorage.removeItem("token");
+    window.localStorage.setItem("token", token);
   }
 
   public deleteTokenCookie() {
     Cookie.remove("AUTH_TOKEN");
+    Cookie.remove("token");
   }
 
   public deleteTokenLocalStorage() {
+    window.localStorage.removeItem("token");
     window.localStorage.removeItem("AUTH_TOKEN");
   }
 
   public isLoggedIn() {
-    if((Cookie.get("AUTH_TOKEN") != null) || (window.localStorage.getItem("AUTH_TOKEN") !== null)) {
+    if(((Cookie.get("AUTH_TOKEN") != null) || (window.localStorage.getItem("AUTH_TOKEN") !== null)) && (Cookie.get("token") != null)) {
       return true;
     } else {
       return false;

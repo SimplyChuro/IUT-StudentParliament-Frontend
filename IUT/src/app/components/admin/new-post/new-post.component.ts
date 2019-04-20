@@ -14,9 +14,9 @@ import swal from 'sweetalert2';
 export class NewPostComponent implements OnInit {
 
   public model: PostInterface = {
-	id: 0,
-	title: "",
-	description: ""
+  	id: 0,
+  	title: "",
+  	description: ""
   };
   
   public pictures = [];
